@@ -1,52 +1,60 @@
-import addict
-
 import typing
 
-from . import types
+import parse
+
 from . import models
 
-def chunk(user_agent: str) -> typing.List[str]:
-    chunks = []
+class Parser:
+    @staticmethod
+    def chunk(user_agent: str) -> typing.List[str]:
+        chunks: typing.List[str] = []
 
-    for segment in user_agent.split():
-        if '/' in segment or not chunks:
-            chunks.append(segment)
-        else:
-            chunks[-1] += f' {segment}'
+        segment: str
+        for segment in user_agent.split():
+            if '/' in segment or not chunks:
+                chunks.append(segment)
+            else:
+                chunks[-1] += f' {segment}'
 
-    return chunks
+        return chunks
 
-def parse(user_agent: str) -> models.UserAgent:
-    products = []
+    @classmethod
+    def parse(cls, user_agent: str) -> models.UserAgent:
+        products: typing.List[models.Product] = []
 
-    for segment in chunk(user_agent):
-        segment = types.ParsableString(segment.strip())
+        segment: str
+        for segment in cls.chunk(user_agent):
+            segment = segment.strip()
 
-        comments = []
+            comments: typing.List[str] = []
 
-        if (result := segment.search('({comment})')):
-            result = addict.Dict(result.__dict__)
+            result: typing.Optional[parse.Result]
+            if (result := parse.search('({})', segment)):
+                comment: str                    = result.fixed[0]
+                span:    typing.Tuple[int, int] = result.spans[0]
 
-            comments = list(map(str.strip, result.named.comment.split(';')))
+                comments = list(map(str.strip, comment.split(';')))
 
-            segment = types.ParsableString(segment[:result.spans.comment[0] - 1].strip())
+                segment = segment[:span[0] - 1].strip()
 
-        if (result := segment.parse('{name}/{version}')):
-            result = addict.Dict(result.__dict__)
+            if (result := parse.parse('{}/{}', segment)):
+                name:    str
+                version: str
+                name, version = result.fixed
 
-            product = models.Product \
-            (
-                identifier = models.ProductIdentifier \
+                product = models.Product \
                 (
-                    name    = result.named.name,
-                    version = result.named.version,
-                ),
-                comments = comments,
-            )
+                    identifier = models.ProductIdentifier \
+                    (
+                        name    = name,
+                        version = version,
+                    ),
+                    comments = comments,
+                )
 
-            products.append(product)
+                products.append(product)
 
-    return models.UserAgent \
-    (
-        products = products
-    )
+        return models.UserAgent \
+        (
+            products = products
+        )
