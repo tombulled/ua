@@ -1,22 +1,18 @@
-import pydantic
-
+import dataclasses
 import typing
 
-class BaseModel(pydantic.BaseModel): pass
-
-class ProductIdentifier(BaseModel):
+@dataclasses.dataclass
+class ProductIdentifier:
     name:     str
     version:  str
 
     def __str__(self) -> str:
         return f'{self.name}/{self.version}'
 
-class Product(BaseModel):
+@dataclasses.dataclass
+class Product:
     identifier: ProductIdentifier
-    comments:   typing.List[str] = pydantic.Field \
-    (
-        default_factory = list,
-    )
+    comments:   typing.List[str] = dataclasses.field(default_factory = list)
 
     def __str__(self):
         return str(self.identifier) + \
@@ -29,7 +25,8 @@ class Product(BaseModel):
             else ''
         )
 
-class UserAgent(BaseModel):
+@dataclasses.dataclass
+class UserAgent:
     products: typing.List[Product]
 
     def __str__(self):
