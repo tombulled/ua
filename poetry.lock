@@ -1,30 +1,30 @@
 [[package]]
-name = "addict"
-version = "2.4.0"
-description = "Addict is a dictionary whose items can be set using both attribute and item syntax."
+name = "cassidy"
+version = "0.1.4"
+description = "String case conversion, identification and parsing"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.8,<4.0"
 
 [[package]]
 name = "enumb"
-version = "0.1.1"
-description = "Python common enums"
+version = "0.1.4"
+description = "Concise, Pythonic Enums"
 category = "main"
 optional = false
-python-versions = "^3.8"
-develop = false
+python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
-addict = "^2.4.0"
-pyhumps = "^1.6.1"
-python-slugify = "^4.0.1"
+cassidy = ">=0.1.2,<0.2.0"
+expo = ">=0.1.1,<0.2.0"
 
-[package.source]
-type = "git"
-url = "https://github.com/tombulled/enumb.git"
-reference = "main"
-resolved_reference = "40cb5358b2f0fbb242c50419c5d6909b5516ecba"
+[[package]]
+name = "expo"
+version = "0.1.2"
+description = "Selectively expose module functionality"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
 
 [[package]]
 name = "parse"
@@ -34,58 +34,24 @@ category = "main"
 optional = false
 python-versions = "*"
 
-[[package]]
-name = "pyhumps"
-version = "1.6.1"
-description = "🐫  Convert strings (and dictionary keys) between snake case, camel case and pascal case in Python. Inspired by Humps for Node"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
-name = "python-slugify"
-version = "4.0.1"
-description = "A Python Slugify application that handles Unicode"
-category = "main"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-
-[package.dependencies]
-text-unidecode = ">=1.3"
-
-[package.extras]
-unidecode = ["Unidecode (>=1.1.1)"]
-
-[[package]]
-name = "text-unidecode"
-version = "1.3"
-description = "The most basic Text::Unidecode port"
-category = "main"
-optional = false
-python-versions = "*"
-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7a2715bdbc30bce8f929315cd0ac55c3cb3004b82ee22022eedea18463d74bc9"
+content-hash = "4a3d93ac684ae638f6e2726d554727356b07cc22e7673dc9eea771976b4cb018"
 
 [metadata.files]
-addict = [
-    {file = "addict-2.4.0-py3-none-any.whl", hash = "sha256:249bb56bbfd3cdc2a004ea0ff4c2b6ddc84d53bc2194761636eb314d5cfa5dfc"},
-    {file = "addict-2.4.0.tar.gz", hash = "sha256:b3b2210e0e067a281f5646c8c5db92e99b7231ea8b0eb5f74dbdf9e259d4e494"},
+cassidy = [
+    {file = "cassidy-0.1.4-py3-none-any.whl", hash = "sha256:9e6fdfff81accd7766f9b3e6665a1c0a914fd7b23c6da16d9face886bc1fb7d8"},
+    {file = "cassidy-0.1.4.tar.gz", hash = "sha256:d51a0f4210a614f6b092e25fe29c981de0d9b769c42129b43708e8f847e22bee"},
 ]
-enumb = []
+enumb = [
+    {file = "enumb-0.1.4-py3-none-any.whl", hash = "sha256:f395214111801a0fdae1d1cf0fc6914bfd0b5b8044da82f48b974fdeffc016f6"},
+    {file = "enumb-0.1.4.tar.gz", hash = "sha256:e5713af4ccbc2ec2ff3021d105fdfb7bb533aabbbd1ee883d7c25916dc233570"},
+]
+expo = [
+    {file = "expo-0.1.2-py3-none-any.whl", hash = "sha256:a36d64c6954de353ee67491351362b04c1b3281acb69afa8534b41279ecd2306"},
+    {file = "expo-0.1.2.tar.gz", hash = "sha256:df9042d9d73307bf987e89791b6e36744c5fa99f7464210e956e76d7fe3e84bd"},
+]
 parse = [
     {file = "parse-1.19.0.tar.gz", hash = "sha256:9ff82852bcb65d139813e2a5197627a94966245c897796760a3a2a8eb66f020b"},
-]
-pyhumps = [
-    {file = "pyhumps-1.6.1-py3-none-any.whl", hash = "sha256:58b367b73c57b64e32d211dc769addabd68ff6db07ce64b2e6565f7d5a12291f"},
-    {file = "pyhumps-1.6.1.tar.gz", hash = "sha256:01612603c5ad73a407299d806d30708a3935052276fdd93776953bccc0724e0a"},
-]
-python-slugify = [
-    {file = "python-slugify-4.0.1.tar.gz", hash = "sha256:69a517766e00c1268e5bbfc0d010a0a8508de0b18d30ad5a1ff357f8ae724270"},
-]
-text-unidecode = [
-    {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
-    {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
 ]
