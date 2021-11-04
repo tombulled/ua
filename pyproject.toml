@@ -1,13 +1,19 @@
 [tool.poetry]
 name = "useragent"
-version = "0.1.1"
+version = "0.1.3"
 description = "User Agent parsing and creation"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/tombulled/useragent"
+repository = "https://github.com/tombulled/useragent"
+documentation = "https://github.com/tombulled/useragent"
+keywords = ["python", "useragent"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 parse = "^1.19.0"
-enumb = {git = "https://github.com/tombulled/enumb.git", rev = "main"}
+enumb = "^0.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
