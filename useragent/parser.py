@@ -1,8 +1,8 @@
 import typing
-
 import parse
 
 from . import models
+
 
 class Parser:
     @staticmethod
@@ -11,10 +11,10 @@ class Parser:
 
         segment: str
         for segment in user_agent.split():
-            if '/' in segment or not chunks:
+            if "/" in segment or not chunks:
                 chunks.append(segment)
             else:
-                chunks[-1] += f' {segment}'
+                chunks[-1] += f" {segment}"
 
         return chunks
 
@@ -29,32 +29,25 @@ class Parser:
             comments: typing.List[str] = []
 
             result: typing.Optional[parse.Result]
-            if (result := parse.search('({})', segment)):
-                comment: str                    = result.fixed[0]
-                span:    typing.Tuple[int, int] = result.spans[0]
+            if result := parse.search("({})", segment):
+                comment: str = result.fixed[0]
+                span: typing.Tuple[int, int] = result.spans[0]
 
-                comments = list(map(str.strip, comment.split(';')))
+                comments = list(map(str.strip, comment.split(";")))
 
-                segment = segment[:span[0] - 1].strip()
+                segment = segment[: span[0] - 1].strip()
 
-            if (result := parse.parse('{}/{}', segment)):
-                name:    str
+            if result := parse.parse("{}/{}", segment):
+                name: str
                 version: str
                 name, version = result.fixed
 
-                product = models.Product \
-                (
-                    identifier = models.ProductIdentifier \
-                    (
-                        name    = name,
-                        version = version,
-                    ),
-                    comments = comments,
+                product = models.Product(
+                    name=name,
+                    version=version,
+                    comments=comments,
                 )
 
                 products.append(product)
 
-        return models.UserAgent \
-        (
-            products = products
-        )
+        return models.UserAgent(products=products)

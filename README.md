@@ -5,12 +5,12 @@ User Agent parsing and creation
 ```python
 >>> import useragent
 >>>
->>> useragent('Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0')
+>>> useragent.parse('Mozilla/5.0 (X11; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0')
 UserAgent(
     products=[
-        Product(identifier=ProductIdentifier(name='Mozilla', version='5.0'), comments=['X11', 'Linux x86_64', 'rv:88.0']),
-        Product(identifier=ProductIdentifier(name='Gecko', version='20100101'), comments=[]),
-        Product(identifier=ProductIdentifier(name='Firefox', version='88.0'), comments=[])
+        Product(name='Mozilla', version='5.0', comments=['X11', 'Linux x86_64', 'rv:88.0']),
+        Product(name='Gecko', version='20100101', comments=[]),
+        Product(name='Firefox', version='88.0', comments=[])
     ]
 )
 ```
