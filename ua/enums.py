@@ -1,7 +1,7 @@
-import enumb
+import enum
 
 
-class ProductName(enumb.Pascal):
-    MOZILLA: str
-    GECKO: str
-    FIREFOX: str
+class ProductName(str, enum.Enum):
+    MOZILLA: str = "Mozilla"
+    GECKO: str = "Gecko"
+    FIREFOX: str = "Firefox"

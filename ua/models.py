@@ -28,3 +28,8 @@ class UserAgent:
 
     def __str__(self) -> str:
         return " ".join(map(str, self.products))
+
+    def __iter__(self) -> typing.Iterable[Product]:
+        product: Product
+        for product in self.products:
+            yield product
