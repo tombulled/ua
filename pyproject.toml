@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ua"
-version = "0.1.4"
+version = "0.1.5"
 description = "User Agent parsing and creation"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
@@ -13,7 +13,10 @@ keywords = ["python", "useragent", "ua"]
 [tool.poetry.dependencies]
 python = "^3.8"
 parse = "^1.19.0"
-enumb = "^0.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.1"
+black = "^22.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
