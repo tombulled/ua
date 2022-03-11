@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "ua"
 version = "0.1.5"
-description = "User Agent parsing and creation"
+description = "User-Agent parsing and creation"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
