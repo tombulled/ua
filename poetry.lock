@@ -8,7 +8,7 @@ python-versions = ">=3.8,<4.0"
 
 [[package]]
 name = "enumb"
-version = "0.1.4"
+version = "0.1.5"
 description = "Concise, Pythonic Enums"
 category = "main"
 optional = false
@@ -45,8 +45,8 @@ cassidy = [
     {file = "cassidy-0.1.4.tar.gz", hash = "sha256:d51a0f4210a614f6b092e25fe29c981de0d9b769c42129b43708e8f847e22bee"},
 ]
 enumb = [
-    {file = "enumb-0.1.4-py3-none-any.whl", hash = "sha256:f395214111801a0fdae1d1cf0fc6914bfd0b5b8044da82f48b974fdeffc016f6"},
-    {file = "enumb-0.1.4.tar.gz", hash = "sha256:e5713af4ccbc2ec2ff3021d105fdfb7bb533aabbbd1ee883d7c25916dc233570"},
+    {file = "enumb-0.1.5-py3-none-any.whl", hash = "sha256:1fd798bc347eecb598de9f95bc71cedd96baea3d4ad95601bfc9e18700b1e097"},
+    {file = "enumb-0.1.5.tar.gz", hash = "sha256:02a6eda94322ae06a52754e46be6d89310b21e0751a9fc5c9546e977b4fa1884"},
 ]
 expo = [
     {file = "expo-0.1.2-py3-none-any.whl", hash = "sha256:a36d64c6954de353ee67491351362b04c1b3281acb69afa8534b41279ecd2306"},

@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "useragent"
-version = "0.1.3"
+name = "ua"
+version = "0.1.4"
 description = "User Agent parsing and creation"
 authors = ["Tom Bulled <26026015+tombulled@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/tombulled/useragent"
-repository = "https://github.com/tombulled/useragent"
-documentation = "https://github.com/tombulled/useragent"
-keywords = ["python", "useragent"]
+homepage = "https://github.com/tombulled/ua"
+repository = "https://github.com/tombulled/ua"
+documentation = "https://github.com/tombulled/ua"
+keywords = ["python", "useragent", "ua"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
